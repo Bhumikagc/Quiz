@@ -3,14 +3,16 @@ package com.hexaware.model.beans;
 import java.time.LocalDate;
 
 public class User {
-	private String userId;
+	private int userId;
 	private String name;
 	private String password;
+	private String mobileNo;
 	private LocalDate date;
-	public String getUserId() {
+	
+	public int getUserId() {
 		return userId;
 	}
-	public void setUserId(String userId) {
+	public void setUserId(int userId) {
 		this.userId = userId;
 	}
 	public String getName() {
@@ -25,6 +27,13 @@ public class User {
 	public void setPassword(String password) {
 		this.password = password;
 	}
+	
+	public String getMobileNo() {
+		return mobileNo;
+	}
+	public void setMobileNo(String mobileNo) {
+		this.mobileNo = mobileNo;
+	}
 	public LocalDate getDate() {
 		return date;
 	}
@@ -33,13 +42,17 @@ public class User {
 	}
 	
 	
-	public User(String userId, String name, String password, LocalDate date) {
+
+	
+	public User(int userId, String name, String password, String mobileNo, LocalDate date) {
 		super();
 		this.userId = userId;
 		this.name = name;
 		this.password = password;
+		this.mobileNo = mobileNo;
 		this.date = date;
 	}
+	
 	public User() {
 		super();
 		

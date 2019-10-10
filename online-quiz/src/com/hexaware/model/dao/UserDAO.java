@@ -6,6 +6,7 @@ public interface UserDAO {
 	
 	public int store(User user);
 	public User login(String userId, String password);
+	public User findById(int userId);
 	
 	
 

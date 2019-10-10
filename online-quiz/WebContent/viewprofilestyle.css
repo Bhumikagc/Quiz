@@ -1,0 +1,12 @@
+@charset "ISO-8859-1";
+
+<style>
+
+body {
+  background-image: url('four.jpg');
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: 100% 100%;
+}
+
+</style

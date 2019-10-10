@@ -6,36 +6,34 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
 
 import com.hexaware.model.beans.User;
 import com.hexaware.model.business.UserService;
 import com.hexaware.model.business.UserServiceImpl;
 
 /**
- * Servlet implementation class LoginServlet
+ * Servlet implementation class ViewProfileServlet
  */
-@WebServlet("/LoginServlet")
-public class LoginServlet extends HttpServlet {
+@WebServlet("/ViewProfileServlet")
+public class ViewProfileServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
-	
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		String userId = request.getParameter("userId");
-		String password = request.getParameter("password");
+
+	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		System.out.println("View profile");
+		int userId = Integer.parseInt(request.getParameter("userId"));
 		UserService service = new UserServiceImpl();
-		User user = service.login(userId, password);
-		
-		HttpSession session = request.getSession();
+		User user = service.findById(userId);
 		
 		if(user != null) {
-			session.setAttribute("u", user);
-			request.getRequestDispatcher("homepage.jsp").forward(request, response);
+			request.setAttribute("u", user);
+			request.getRequestDispatcher("viewprofile.jsp").forward(request, response);
 		} else {
 			request.setAttribute("w", "Sorry, Invalid Credentials");
 			request.getRequestDispatcher("login.jsp").forward(request, response);
 		}
-
+		
+		
 	}
 
 }

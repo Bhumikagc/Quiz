@@ -1,0 +1,1 @@
+ create table user_details(USER_ID varchar(10), USER_NAME VARCHAR(15), USER_PASSWORD VARCHAR(15), USER_MOBILENO varchar(10), USER_DOB date);
