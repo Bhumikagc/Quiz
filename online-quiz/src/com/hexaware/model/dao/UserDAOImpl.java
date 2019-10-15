@@ -31,13 +31,13 @@ public class UserDAOImpl implements UserDAO {
 	}
 
 	@Override
-	public User login(String userId, String password) {
+	public User login(int userId, String password) {
 		User user = null;
 		try {
 			Connection con = DBUtility.establishConnection();
 			String query = "SELECT * FROM user_details where user_Id = ? and  user_password = ?";
 			PreparedStatement pstmt = con.prepareStatement(query);			
-			pstmt.setString(1, userId);
+			pstmt.setInt(1, userId);
 			pstmt.setString(2, password);
 			ResultSet rs = pstmt.executeQuery();
 			
@@ -75,5 +75,44 @@ public class UserDAOImpl implements UserDAO {
 			e.printStackTrace();
 }
 		return user;
+	}
+
+	@Override
+	public int updateUserPwd(int userId, String password) {
+		
+		int status = 0;
+		try {
+			Connection con = DBUtility.establishConnection();
+			String query = "UPDATE user_details SET USER_PASSWORD = ? WHERE USER_ID = ?";
+			PreparedStatement pstmt = con.prepareStatement(query);
+			pstmt.setString(1, password);
+			pstmt.setInt(2, userId);
+			status = pstmt.executeUpdate();
+			pstmt.close();
+			con.close();
+		} catch(Exception e) {
+			e.printStackTrace();
+		}
+		return status;
+	}
+
+	@Override
+	public int updateUserMNo(int userId, String mobileNo) {
+		int status = 0;
+		System.out.println(mobileNo);
+		try {
+			Connection con = DBUtility.establishConnection();
+			String query = "UPDATE user_details SET USER_MOBILENO = ? WHERE USER_ID = ?";
+			PreparedStatement pstmt = con.prepareStatement(query);
+			pstmt.setString(1, mobileNo);
+			pstmt.setInt(2, userId);
+			System.out.println(mobileNo);
+			status = pstmt.executeUpdate();
+			pstmt.close();
+			con.close();
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return status;
 	}
 }

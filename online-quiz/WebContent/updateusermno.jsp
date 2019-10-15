@@ -5,19 +5,12 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>Insert title here</title>
-<link href="viewprofilestyle.css" rel="stylesheet">
 </head>
 <body>
-
-	<h2>Profile Details</h2>
-	<table border = "1">
-		<tr>
-			<th>ID<th>Name</th><th>Mobile No</th><th>Date Of Birth</th>
-		</tr>
-	<tr>
-		<td>${u.userId}</td><td>${u.name}</td><td>${u.mobileNo}</td><td>${u.date}</td>
-	</tr>
-	</table>
-
+<form action="UpdateUserMNoServlet" method = "get">
+Enter New Mobile No: <input type="text" name = "mobileNo">
+<br />
+<input type = "submit" value="UPDATE">
+</form>
 </body>
 </html>

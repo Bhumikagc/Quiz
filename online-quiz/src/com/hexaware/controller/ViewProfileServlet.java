@@ -21,18 +21,8 @@ public class ViewProfileServlet extends HttpServlet {
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		System.out.println("View profile");
-		int userId = Integer.parseInt(request.getParameter("userId"));
-		UserService service = new UserServiceImpl();
-		User user = service.findById(userId);
-		
-		if(user != null) {
-			request.setAttribute("u", user);
-			request.getRequestDispatcher("viewprofile.jsp").forward(request, response);
-		} else {
-			request.setAttribute("w", "Sorry, Invalid Credentials");
-			request.getRequestDispatcher("login.jsp").forward(request, response);
-		}
-		
+		//int userId = Integer.parseInt(request.getParameter("userId"));
+		request.getRequestDispatcher("viewprofile.jsp").forward(request, response);
 		
 	}
 

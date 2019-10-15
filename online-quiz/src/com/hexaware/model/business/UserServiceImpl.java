@@ -23,7 +23,7 @@ public class UserServiceImpl implements UserService{
 	}	
 	
 	@Override
-	public User login(String userId, String password) {
+	public User login(int userId, String password) {
 		
 		return dao.login(userId, password);
 	}
@@ -33,5 +33,19 @@ public class UserServiceImpl implements UserService{
 	public User findById(int userId) {
 		
 		return dao.findById(userId);
+	}
+
+
+	@Override
+	public int updateUserPwd(int userId, String password) {
+		
+		return dao.updateUserPwd(userId, password);
+	}
+
+
+	@Override
+	public int updateUserMNo(int userId, String mobileNo) {
+		
+		return dao.updateUserMNo(userId, mobileNo);
 	}
 }

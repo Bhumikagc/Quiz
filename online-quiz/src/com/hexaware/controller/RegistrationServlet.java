@@ -35,7 +35,7 @@ public class RegistrationServlet extends HttpServlet {
 		int status = service.store(user);
 		
 		if(status>0) {
-			request.setAttribute("msg", "Stored Successfully");
+			request.setAttribute("msg", "Registered Succesfully");
 			request.getRequestDispatcher("login.jsp").forward(request, response);
 		} else {
 			request.setAttribute("msg", "Sorry, User Not Stored");

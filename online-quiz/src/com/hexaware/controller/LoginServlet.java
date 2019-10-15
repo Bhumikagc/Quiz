@@ -21,15 +21,17 @@ public class LoginServlet extends HttpServlet {
        
 	
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		String userId = request.getParameter("userId");
+		int userId = Integer.parseInt(request.getParameter("userId"));
 		String password = request.getParameter("password");
 		UserService service = new UserServiceImpl();
 		User user = service.login(userId, password);
 		
 		HttpSession session = request.getSession();
 		
+		
 		if(user != null) {
 			session.setAttribute("u", user);
+			session.setAttribute("id", user.getUserId());
 			request.getRequestDispatcher("homepage.jsp").forward(request, response);
 		} else {
 			request.setAttribute("w", "Sorry, Invalid Credentials");

@@ -5,19 +5,9 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>Insert title here</title>
-<link href="viewprofilestyle.css" rel="stylesheet">
 </head>
 <body>
-
-	<h2>Profile Details</h2>
-	<table border = "1">
-		<tr>
-			<th>ID<th>Name</th><th>Mobile No</th><th>Date Of Birth</th>
-		</tr>
-	<tr>
-		<td>${u.userId}</td><td>${u.name}</td><td>${u.mobileNo}</td><td>${u.date}</td>
-	</tr>
-	</table>
-
+ <a href = "updateuserpwd.jsp"><button type="button" value="Update Password">Update Password</button></a> <br> <br>
+ <a href = "updateusermno.jsp"><button type="button" value="Update MobileNo">Update Mobile No</button></a>
 </body>
 </html>

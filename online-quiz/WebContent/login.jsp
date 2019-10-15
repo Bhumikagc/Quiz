@@ -12,8 +12,9 @@
 <body>
 
 
-<h2 style="text-align: center; color: white;">Login Form</h2> 
-
+<h2 style="text-align: center; color: white;">Login Form</h2> <br />
+<h3 style = 'color:red'>${w}</h3>
+<h3 style = 'color:green'>${msg}</h3>
 
   <form action="LoginServlet" method = "post">
   <div class="container">
@@ -39,9 +40,6 @@
   </div>  
   </div>
  </form>
-
-
-
 <!-- 	<form action = "LoginServlet" method="post">
 		Enter UserId: <input type = "text" name = "n1"> <br />
 		Enter Password: <input type = "password" name = "n2"> <br />
